@@ -1,0 +1,40 @@
+package com.Application.BankingApp.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.Application.BankingApp.Entity.User;
+import com.Application.BankingApp.Repository.UserRepository;
+
+@Service
+public class UserService {
+	
+	private final UserRepository userRepository ;
+	
+	
+
+	public UserService(UserRepository userRepository) {
+		super();
+		this.userRepository = userRepository;
+	}
+
+
+
+	public User createUser(User user) {
+		
+		return userRepository.save(user);
+		
+	}
+	
+	
+
+	public Optional<User>getUserById(Long id) {
+		
+		return  userRepository.findById(id);
+	}
+
+	
+	
+}

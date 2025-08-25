@@ -31,3 +31,21 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Eclipse metadata
+.metadata/
+.settings/
+.classpath
+.project
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build output
+target/
+bin/
