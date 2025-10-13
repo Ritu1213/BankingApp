@@ -21,13 +21,12 @@ public class UserService {
 	}
 
 
-
+  //creating user
 	public User createUser(User user) {
-		
+	    
 		return userRepository.save(user);
 		
 	}
-	
 	
 
 	public Optional<User>getUserById(Long id) {

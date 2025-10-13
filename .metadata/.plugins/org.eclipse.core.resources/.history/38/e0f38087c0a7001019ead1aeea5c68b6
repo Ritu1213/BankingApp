@@ -1,0 +1,30 @@
+package com.Application.BankingApp.Controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Application.BankingApp.Entity.Transaction;
+import com.Application.BankingApp.Service.TransactionService;
+import com.Application.BankingApp.Service.UserService;
+
+@RestController
+@RequestMapping("/transaction")
+public class TransactionController {
+
+private final TransactionService transactionService ;
+	
+	
+	public TransactionController( TransactionService transactionService) {
+		super();
+		this.transactionService =transactionService;
+	}
+
+	@GetMapping("/{id}")
+	public List<Transaction> findByUserId(Long UserId){
+		return  transactionService.findByUserId(UserId) ;
+		
+	}
+}

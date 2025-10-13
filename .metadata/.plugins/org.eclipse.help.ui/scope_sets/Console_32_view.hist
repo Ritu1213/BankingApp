@@ -1,0 +1,6 @@
+#Wed Oct 01 18:26:07 EDT 2025
+__DEFAULT__=false
+expression=Console view
+org.eclipse.help.ui.localSearch.master=true
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.sdk.Google.master=true

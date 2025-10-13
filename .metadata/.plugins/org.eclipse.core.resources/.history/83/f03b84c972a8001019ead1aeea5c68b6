@@ -1,0 +1,26 @@
+package com.Application.BankingApp.Service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.Application.BankingApp.Entity.Transaction;
+import com.Application.BankingApp.Entity.User;
+import com.Application.BankingApp.Repository.TransactionRepository;
+
+@Service
+public class TransactionService {
+       private final TransactionRepository transactionRepository;
+
+	public TransactionService(TransactionRepository transactionRepository) {
+		super();
+		this.transactionRepository = transactionRepository;
+	}
+       
+	
+
+	public List<Transaction> findByUserId(Long userId) {
+		// TODO Auto-generated method stub
+		return transactionRepository.findByUserId(userId) ;
+	}
+}

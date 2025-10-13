@@ -1,0 +1,16 @@
+package com.Application.BankingApp.Repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.Application.BankingApp.Entity.Transaction;
+
+public interface TransactionRepository extends JpaRepository<Transaction,Long>{
+@Query(value = "SELECT t.amount , t.timestamp,u.name\r\n"
+		+ "fROM TRANSACTION t\r\n"
+		+ "join users u ON t.user_id = u.id"
+		+ "WHERE u.id= :userId")
+	 List<Transaction> findByUserId(Long UserId);
+}

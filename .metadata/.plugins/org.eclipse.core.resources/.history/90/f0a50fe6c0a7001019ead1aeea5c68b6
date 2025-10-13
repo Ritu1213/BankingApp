@@ -1,0 +1,17 @@
+package com.Application.BankingApp.Service;
+
+import org.springframework.stereotype.Service;
+
+import com.Application.BankingApp.Repository.TransactionRepository;
+
+@Service
+public class TransactionService {
+       private final TransactionRepository transactionRepository;
+
+	public TransactionService(TransactionRepository transactionRepository) {
+		super();
+		this.transactionRepository = transactionRepository;
+	}
+       
+       
+}

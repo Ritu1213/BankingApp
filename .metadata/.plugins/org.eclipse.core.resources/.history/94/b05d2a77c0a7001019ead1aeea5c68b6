@@ -1,0 +1,20 @@
+package com.Application.BankingApp.Controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Application.BankingApp.Service.TransactionService;
+import com.Application.BankingApp.Service.UserService;
+
+@RestController
+public class TransactionController {
+
+private final TransactionService transactionService ;
+	
+	
+	public TransactionController( TransactionService transactionService) {
+		super();
+		this.transactionService =transactionService;
+	}
+
+   
+}
