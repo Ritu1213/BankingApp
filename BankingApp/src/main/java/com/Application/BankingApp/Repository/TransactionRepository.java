@@ -10,5 +10,5 @@ import com.Application.BankingApp.Entity.Transaction;
 
 public interface TransactionRepository extends JpaRepository<Transaction,Long>{
 
-	 List<Transaction> findByUserId(@Param("userId") Long UserId);
+	 List<Transaction> findByUserId( Long UserId);
 }

@@ -10,6 +10,7 @@ import com.Application.BankingApp.Entity.User;
 import com.Application.BankingApp.Repository.TransactionRepository;
 import com.Application.BankingApp.Repository.UserRepository;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @Service
@@ -32,11 +33,26 @@ public class TransactionService {
 
 
 
+	@Transactional
 	public Transaction createTransaction(Long userId,Transaction transaction) {
 		User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User Not Found"));
 		
+			if(user.getBalance() < transaction.getAmount()) {
+				throw new RuntimeException("Insufficiant balance!");
+			}
+			else {
+				
+				double newBalance = user.getBalance() - transaction.getAmount();
+			    user.setBalance(newBalance);
+			    double newReward= user.getReward() + (10 * transaction.getAmount());
+			    user.setReward(newReward);
+			}
+		
+		
 		transaction.setUser(user);
 		transaction.setTimestamp(LocalDateTime.now());
+		userRepository.save(user);
 		return transactionRepository.save(transaction);
 	}
+			
 }

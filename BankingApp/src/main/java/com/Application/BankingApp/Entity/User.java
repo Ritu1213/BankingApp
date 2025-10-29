@@ -42,10 +42,9 @@ public class User {
 	  private double  balance =0;
 	 
 	 @Column(name="reward")
-	  private int reward =0;
+	  private double reward =0;
 	 
 	 @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,orphanRemoval = true)
-	
 	 @JsonIgnore
 	 private List<Transaction> Transaction = new ArrayList<>();
 
@@ -81,12 +80,12 @@ public class User {
 		this.balance = balance;
 	}
 
-	public int getReward() {
+	public double getReward() {
 		return reward;
 	}
 
-	public void setReward(int reward) {
-		this.reward = reward;
+	public void setReward(double newReward) {
+		this.reward = newReward;
 	}
 
 	
